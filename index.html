@@ -316,7 +316,7 @@
                     <p class="text-stone-600 text-base font-light leading-relaxed max-w-xl">
                         Mark your calendars - we're tying the knot and we would love nothing more than to have you there to celebrate with us, from the poruwa ceremony in the morning through to the reception in the evening.
                     </p>
-                    <a class="inline-block font-sans-alt text-xs uppercase tracking-widest bg-stone-900 text-white px-6 py-3.5 hover:bg-stone-800 transition duration-300 rounded mt-2 shadow-sm" href="#rsvp">RSVP Now</a>
+                    <a id="rsvp-link" class="inline-block font-sans-alt text-xs uppercase tracking-widest bg-stone-900 text-white px-6 py-3.5 hover:bg-stone-800 transition duration-300 rounded mt-2 shadow-sm" href="#rsvp">RSVP Now</a>
                 </div>
             </div>
         </section>
@@ -434,6 +434,12 @@
         const bgMusic = document.getElementById('bg-music');
         const musicControl = document.getElementById('music-control');
         const musicIcon = document.getElementById('music-icon');
+
+        // Keep the RSVP action independent of any personalized guest-name query string.
+        document.getElementById('rsvp-link').addEventListener('click', (event) => {
+            event.preventDefault();
+            document.getElementById('rsvp').scrollIntoView({ behavior: 'smooth' });
+        });
 
         // 1. 3D Envelope Opening & Slide Transition Action
         envelope.addEventListener('click', () => {
